@@ -1,0 +1,11 @@
+input {
+  font-size: 26px;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-family: "Corben", cursive;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+}
