@@ -1,4 +1,5 @@
 import * as React from "react";
+import { debounce } from "lodash";
 import { Context } from "../providers/GiphyProvider";
 import "./SearchBar.module";
 
@@ -10,8 +11,10 @@ const SearchBar: React.FC = () => {
     setQuery(event.currentTarget.value);
   }
 
+  const debouncedSearch = React.useRef(debounce(searchGifs, 700));
+
   React.useEffect(() => {
-    searchGifs(query);
+    debouncedSearch.current(query);
   }, [query]);
 
   return (

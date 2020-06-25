@@ -52,6 +52,9 @@ const SearchResults: React.FC = () => {
         <ul className="img-view">
           {gifs.map((gif: GIFObject) => (
             <li
+              className={
+                currentGif && gif.id === currentGif.id ? "active" : null
+              }
               onClick={() => {
                 copyToClipboard(gif);
               }}
