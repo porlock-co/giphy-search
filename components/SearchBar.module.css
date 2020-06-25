@@ -1,11 +1,12 @@
 input {
-  font-size: 26px;
+  font-size: 5vmin;
   letter-spacing: 0.5px;
-  border-radius: 10px;
   padding: 10px 15px;
   font-family: "Corben", cursive;
   background-color: black;
   color: white;
   border: none;
+  border-bottom: 0.25px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
   outline: none;
 }

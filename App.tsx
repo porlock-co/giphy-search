@@ -16,10 +16,8 @@ const App: React.FC = () => {
           <LayoutProvider>
             {/* <HoverElem /> */}
             <div className="controls">
-              <div>
-                <SearchBar />
-                <ViewSwitcher />
-              </div>
+              <SearchBar />
+              <ViewSwitcher />
             </div>
             <SearchResults />
           </LayoutProvider>

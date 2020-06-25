@@ -13,8 +13,9 @@ const SearchBar: React.FC = () => {
   React.useEffect(() => {
     searchGifs(query);
   }, [query]);
+
   return (
-    <div>
+    <>
       <input
         type="text"
         value={query}
@@ -22,7 +23,7 @@ const SearchBar: React.FC = () => {
           handleQuery(e);
         }}
       />
-    </div>
+    </>
   );
 };
 
