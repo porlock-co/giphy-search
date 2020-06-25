@@ -7,7 +7,7 @@ export enum ViewTypes {
 
 const LayoutContext = React.createContext(null);
 const LayoutProvider: React.FC = (props) => {
-  const [layout, setLayout] = React.useState<ViewTypes>(ViewTypes.LIST);
+  const [layout, setLayout] = React.useState<ViewTypes>(ViewTypes.IMG);
 
   const changeLayout = (type: ViewTypes) => {
     setLayout(type);

@@ -1,10 +1,10 @@
 import * as React from "react";
-import { GiphyProvider } from "./providers/GiphyProvider";
+import { APIProvider } from "./providers/APIProvider";
 import SearchResults from "./components/SearchResults";
 import "./App.css";
 
 import SearchBar from "./components/SearchBar";
-import HoverElem from "./components/HoverElem";
+
 import ViewSwitcher from "./components/ViewSwitcher";
 import { LayoutProvider } from "./providers/LayoutProvider";
 
@@ -12,16 +12,15 @@ const App: React.FC = () => {
   return (
     <>
       <main>
-        <GiphyProvider>
+        <APIProvider>
           <LayoutProvider>
-            {/* <HoverElem /> */}
             <div className="controls">
               <SearchBar />
               <ViewSwitcher />
             </div>
             <SearchResults />
           </LayoutProvider>
-        </GiphyProvider>
+        </APIProvider>
       </main>
     </>
   );

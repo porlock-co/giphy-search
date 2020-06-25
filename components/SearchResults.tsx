@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GIFObject } from "giphy-api";
-import { Context } from "../providers/GiphyProvider";
+import { Context } from "../providers/APIProvider";
 import { LayoutContext, ViewTypes } from "../providers/LayoutProvider";
 
 import "./SearchResults.module";
@@ -25,7 +25,7 @@ const SearchResults: React.FC = () => {
     return (
       <>
         <HoverElem>
-          {currentGif && <img src={currentGif.images.fixed_width_small.webp} />}
+          {currentGif && <img src={currentGif.images.fixed_width_small.url} />}
         </HoverElem>
         <ul className="list-view">
           {gifs.map((gif: GIFObject) => (
@@ -63,7 +63,7 @@ const SearchResults: React.FC = () => {
                 height: `${gif.images.fixed_height_small.height}px`,
               }}
             >
-              <img key={gif.id} src={gif.images.fixed_width_small.webp} />
+              <img key={gif.id} src={gif.images.fixed_width_small.url} />
             </li>
           ))}
         </ul>

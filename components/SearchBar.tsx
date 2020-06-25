@@ -1,20 +1,20 @@
 import * as React from "react";
 import { debounce } from "lodash";
-import { Context } from "../providers/GiphyProvider";
+import { Context, APIOpTypes } from "../providers/APIProvider";
 import "./SearchBar.module";
 
 const SearchBar: React.FC = () => {
-  const { searchGifs } = React.useContext(Context);
+  const { performOperation } = React.useContext(Context);
   const [query, setQuery] = React.useState("simpsons");
 
   function handleQuery(event: React.ChangeEvent<HTMLInputElement>) {
     setQuery(event.currentTarget.value);
   }
 
-  const debouncedSearch = React.useRef(debounce(searchGifs, 700));
+  const debouncedSearch = React.useRef(debounce(performOperation, 700));
 
   React.useEffect(() => {
-    debouncedSearch.current(query);
+    debouncedSearch.current(APIOpTypes.SEARCH_GIFS, query);
   }, [query]);
 
   return (
