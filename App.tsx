@@ -1,12 +1,11 @@
 import * as React from "react";
-import { APIProvider } from "./providers/APIProvider";
-import SearchResults from "./components/SearchResults";
+import { APIProvider } from "./src/providers/APIProvider";
+import { LayoutProvider } from "./src/providers/LayoutProvider";
+import SearchBar from "./src/components/SearchBar";
+import SearchResults from "./src/components/SearchResults";
+import ViewSwitcher from "./src/components/ViewSwitcher";
+
 import "./App.css";
-
-import SearchBar from "./components/SearchBar";
-
-import ViewSwitcher from "./components/ViewSwitcher";
-import { LayoutProvider } from "./providers/LayoutProvider";
 
 const App: React.FC = () => {
   return (

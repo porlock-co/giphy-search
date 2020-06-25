@@ -1,7 +1,7 @@
 import * as React from "react";
-import "./ViewSwitcher.module";
-
 import { LayoutContext, ViewTypes } from "../providers/LayoutProvider";
+
+import "./ViewSwitcher.module";
 
 const ViewSwitcher: React.FC = () => {
   const { layout, changeLayout } = React.useContext(LayoutContext);

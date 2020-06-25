@@ -2,9 +2,9 @@ import * as React from "react";
 import { GIFObject } from "giphy-api";
 import { Context } from "../providers/APIProvider";
 import { LayoutContext, ViewTypes } from "../providers/LayoutProvider";
+import HoverElem from "./HoverElem";
 
 import "./SearchResults.module";
-import HoverElem from "./HoverElem";
 
 const SearchResults: React.FC = () => {
   const { gifs } = React.useContext(Context);
