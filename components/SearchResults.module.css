@@ -9,13 +9,27 @@ ul.img-view li {
   display: inline-block;
 }
 
-img {
+.img-view img {
   width: 100%;
   height: 100%;
   opacity: 0.45;
   transition: all 0.35s linear;
 }
 
-img:hover {
+.img-view img:hover {
   opacity: 1;
+}
+
+ul.list-view {
+  color: white;
+  list-style-type: none;
+  font-family: "Corben", cursive;
+}
+
+ul.list-view li:hover {
+  background-color: salmon;
+}
+
+.hack {
+  visibility: hidden;
 }
