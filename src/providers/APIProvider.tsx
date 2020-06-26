@@ -10,6 +10,7 @@ export enum APIOpTypes {
 
 const APIProvider: React.FC = (props) => {
   const [gifs, setGifs] = React.useState<GIFObject[] | []>([]);
+  const [loading, setLoading] = React.useState(false);
 
   function performOperation(type: APIOpTypes, payload: any) {
     switch (type) {
@@ -19,18 +20,20 @@ const APIProvider: React.FC = (props) => {
   }
 
   function searchGifs(query: string) {
+    setLoading(true);
     axios
       .get(
         `https://api.giphy.com/v1/gifs/search?api_key=TB7SjvN0wYTk0DU0nJQTgamoMWqjzk5I&q=${query}&limit=100&offset=0`
       )
       .then(({ data }) => {
         setGifs(data.data);
+        setLoading(false);
       })
       .catch((error) => console.error);
   }
 
   return (
-    <Context.Provider value={{ gifs, performOperation }}>
+    <Context.Provider value={{ loading, gifs, performOperation }}>
       {props.children}
     </Context.Provider>
   );

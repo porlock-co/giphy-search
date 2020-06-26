@@ -7,7 +7,7 @@ import HoverElem from "./HoverElem";
 import "./SearchResults.module";
 
 const SearchResults: React.FC = () => {
-  const { gifs } = React.useContext(Context);
+  const { gifs, loading } = React.useContext(Context);
   const { layout } = React.useContext(LayoutContext);
   const [currentGif, setCurrentGif] = React.useState(null);
 
@@ -21,11 +21,15 @@ const SearchResults: React.FC = () => {
     navigator.clipboard.writeText(gif.images.original.url);
   };
 
+  if (loading) {
+    return <h2>loding gifs</h2>;
+  }
+
   const ListView: React.FC = () => {
     return (
       <>
         <HoverElem>
-          {currentGif && <img src={currentGif.images.fixed_width_small.url} />}
+          {currentGif && <img src={currentGif.images.fixed_width.url} />}
         </HoverElem>
         <ul className="list-view">
           {gifs.map((gif: GIFObject) => (
@@ -52,6 +56,7 @@ const SearchResults: React.FC = () => {
         <ul className="img-view">
           {gifs.map((gif: GIFObject) => (
             <li
+              key={gif.id}
               className={
                 currentGif && gif.id === currentGif.id ? "active" : null
               }
