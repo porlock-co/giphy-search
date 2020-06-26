@@ -1,9 +1,9 @@
 import * as React from "react";
-import { APIProvider } from "./src/providers/APIProvider";
-import { LayoutProvider } from "./src/providers/LayoutProvider";
-import SearchBar from "./src/components/SearchBar";
-import SearchResults from "./src/components/SearchResults";
-import ViewSwitcher from "./src/components/ViewSwitcher";
+import { APIProvider } from "./providers/APIProvider";
+import { LayoutProvider } from "./providers/LayoutProvider";
+import SearchBar from "./components/SearchBar";
+import SearchResults from "./components/SearchResults";
+import ViewSwitcher from "./components/ViewSwitcher";
 
 import "./App.css";
 
