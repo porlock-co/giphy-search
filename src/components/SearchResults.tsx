@@ -54,6 +54,10 @@ const SearchResults: React.FC = () => {
     leave: { transform: "translateY(300px)" },
   });
 
+  React.useEffect(() => {
+    navigator.clipboard.writeText(link);
+  }, [link]);
+
   const selectGif = (gif: GIFObject) => {
     if (!currentGif || currentGif.id !== gif.id) {
       setCurrentGif(gif);
@@ -62,7 +66,6 @@ const SearchResults: React.FC = () => {
 
   const copyToClipboard = (gif: GIFObject) => {
     setLink(gif.images.original.url);
-    navigator.clipboard.writeText(link);
     setTimeout(() => {
       setLink(null);
     }, 3000);
