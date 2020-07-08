@@ -11,7 +11,6 @@ type ImgPreviewProps = {
 const ImgPreview: React.FC<ImgPreviewProps> = ({ gif }) => {
   const [isLoaded, setLoaded] = React.useState(false);
   const [isHover, setIsHover] = React.useState(false);
-  const [test, setTest] = React.useState(false);
 
   const setOpacity = () => {
     if (isHover) {
@@ -21,7 +20,6 @@ const ImgPreview: React.FC<ImgPreviewProps> = ({ gif }) => {
 
   const props = useSpring({
     opacity: setOpacity(),
-
     transform: isLoaded ? "translateY(0px)" : "translateY(-10px)",
     config: config.gentle,
   });
@@ -38,11 +36,8 @@ const ImgPreview: React.FC<ImgPreviewProps> = ({ gif }) => {
       onMouseOut={() => {
         setIsHover(false);
       }}
-      onClick={() => {
-        setTest(true);
-      }}
       key={gif.id}
-      src={gif.images.fixed_height_small.url}
+      src={gif.images.fixed_height.url}
     />
   );
 };

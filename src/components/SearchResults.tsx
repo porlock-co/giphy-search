@@ -30,8 +30,8 @@ const ImgView: React.FC<ImgViewProps> = ({
               copyToClipboard(gif);
             }}
             style={{
-              width: `${gif.images.fixed_height_small.width}px`,
-              height: `${gif.images.fixed_height_small.height}px`,
+              width: `${gif.images.fixed_height.width}px`,
+              height: `${gif.images.fixed_height.height}px`,
             }}
           >
             <ImgPreview gif={gif} />
@@ -45,9 +45,9 @@ const ImgView: React.FC<ImgViewProps> = ({
 const SearchResults: React.FC = () => {
   const { gifs, loading } = React.useContext(Context);
   const { layout } = React.useContext(LayoutContext);
-  const [currentGif, setCurrentGif] = React.useState(null);
-  const [link, setLink] = React.useState(null);
-  const transitions = useTransition(link, null, {
+  const [currentGif, setCurrentGif] = React.useState<GIFObject>(null);
+  const [link, setLink] = React.useState({ text: null, show: false });
+  const transitions = useTransition(link.show, null, {
     config: config.gentle,
     from: { transform: "translateY(300px)" },
     enter: { transform: "translateY(0px)" },
@@ -55,7 +55,7 @@ const SearchResults: React.FC = () => {
   });
 
   React.useEffect(() => {
-    navigator.clipboard.writeText(link);
+    navigator.clipboard.writeText(link.text);
   }, [link]);
 
   const selectGif = (gif: GIFObject) => {
@@ -65,9 +65,9 @@ const SearchResults: React.FC = () => {
   };
 
   const copyToClipboard = (gif: GIFObject) => {
-    setLink(gif.images.original.url);
+    setLink({ show: true, text: gif.images.original.url });
     setTimeout(() => {
-      setLink(null);
+      setLink({ ...link, show: false });
     }, 3000);
   };
 
