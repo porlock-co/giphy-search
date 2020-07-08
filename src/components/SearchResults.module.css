@@ -2,26 +2,13 @@ ul.img-view {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 ul.img-view li {
   display: inline-block;
-}
-
-.img-view img {
-  width: 100%;
-  height: 100%;
-  opacity: 0.45;
-  transition: all 0.15s linear;
-}
-
-.img-view img.active {
-  opacity: 1;
-}
-
-.img-view img:hover {
-  opacity: 1;
 }
 
 ul.list-view {
@@ -47,4 +34,15 @@ ul.list-view li:hover {
 .loading-content {
   color: salmon;
   font-size: 2.3vw;
+}
+
+.link-copy-status {
+  color: salmon;
+  font-family: "Corben", cursive;
+  z-index: 2;
+  padding: 10px;
+  position: absolute;
+  background-color: black;
+  bottom: 50px;
+  left: 50%;
 }

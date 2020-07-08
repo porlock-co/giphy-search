@@ -15,7 +15,7 @@ const App: React.FC = () => {
           <LayoutProvider>
             <div className="controls">
               <SearchBar />
-              <ViewSwitcher />
+              {/* <ViewSwitcher /> */}
             </div>
             <SearchResults />
           </LayoutProvider>
